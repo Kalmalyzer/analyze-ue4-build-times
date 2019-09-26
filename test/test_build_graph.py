@@ -423,5 +423,22 @@ class TestBuildGraph(unittest.TestCase):
 
         self.assertEqual(len(json["Binaries"]), len(build_graph))
 
+        # Ensure build graph contains the expected binary items
+
+        build_graph_list = list(build_graph)
+        build_settings_binary = next(binary for binary in build_graph_list if "UE4Editor-BuildSettings" in binary.name)
+        tracelog_binary = next(binary for binary in build_graph_list if "UE4Editor-TraceLog" in binary.name)
+        core_binary = next(binary for binary in build_graph_list if "UE4Editor-Core" in binary.name)
+        self.assertTrue(build_settings_binary)
+        self.assertTrue(tracelog_binary)
+        self.assertTrue(core_binary)
+
+        self.assertEqual(0, len(build_settings_binary.dependent_binary_import_libraries))
+        self.assertEqual(0, len(tracelog_binary.dependent_binary_import_libraries))
+        self.assertEqual(2, len(core_binary.dependent_binary_import_libraries))
+
+        self.assertTrue(any("UE4Editor-BuildSettings" in binary.name for binary in core_binary.dependent_binary_import_libraries))
+        self.assertTrue(any("UE4Editor-TraceLog" in binary.name for binary in core_binary.dependent_binary_import_libraries))
+
 if __name__=='__main__':
     unittest.main()

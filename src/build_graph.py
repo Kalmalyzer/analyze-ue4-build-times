@@ -20,14 +20,10 @@ class Module(object):
         self.public_dependency_modules = set()
         self.binary = None
 
-def gather_binary_dependencies_for_module_recursive(module, modules_processed, binary_dependencies):
+def gather_binary_dependencies_for_module_sub(module, modules_processed, binary_dependencies):
     if not module in modules_processed:
         modules_processed.add(module)
-
         binary_dependencies.add(module.binary)
-
-        for public_dependency_module in module.public_dependency_modules:
-            gather_binary_dependencies_for_module_recursive(public_dependency_module, modules_processed, binary_dependencies)
 
 def gather_binary_dependencies_for_module(module):
 
@@ -36,17 +32,12 @@ def gather_binary_dependencies_for_module(module):
     binary_dependencies = set()
 
     for private_dependency_module in module.private_dependency_modules:
-        gather_binary_dependencies_for_module_recursive(private_dependency_module, modules_processed, binary_dependencies)
-
-# Why does the 'UE4Editor-Core' module appear after scanning the private dependency modules?
-    if module.name == "Core":
-        print(', '.join(str(x) for x in binary_dependencies))
+        gather_binary_dependencies_for_module_sub(private_dependency_module, modules_processed, binary_dependencies)
 
     for public_dependency_module in module.public_dependency_modules:
-        gather_binary_dependencies_for_module_recursive(public_dependency_module, modules_processed, binary_dependencies)
+        gather_binary_dependencies_for_module_sub(public_dependency_module, modules_processed, binary_dependencies)
 
-    if module.name == "Core":
-        print(', '.join(str(x) for x in binary_dependencies))
+    binary_dependencies.discard(module.binary)
 
     return binary_dependencies
 
