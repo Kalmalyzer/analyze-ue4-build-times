@@ -1,0 +1,415 @@
+{
+    "Binaries": [
+        {
+            "File": "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine\\Binaries\\Win64\\UE4Editor-Core.dll",
+            "Type": "DynamicLinkLibrary",
+            "Modules": [
+                "Core",
+                "zlib",
+                "IntelTBB",
+                "IntelVTune",
+                "ICU"
+            ]
+        },
+        {
+            "File": "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine\\Binaries\\Win64\\UE4Editor-BuildSettings.dll",
+            "Type": "DynamicLinkLibrary",
+            "Modules": [
+                "BuildSettings"
+            ]
+        },
+        {
+            "File": "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine\\Binaries\\Win64\\UE4Editor-TraceLog.dll",
+            "Type": "DynamicLinkLibrary",
+            "Modules": [
+                "TraceLog"
+            ]
+        }
+    ],
+    "Modules": {
+        "Core": 
+        {
+            "Name": "Core",
+            "Directory": "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine\\Source\\Runtime\\Core",
+            "Rules": "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine\\Source\\Runtime\\Core\\Core.Build.cs",
+			"Type": "CPlusPlus",
+            "PCHUsage": "UseExplicitOrSharedPCHs",
+            "PrivatePCH": "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine\\Source\\Runtime\\Core\\Private\\CorePrivatePCH.h",
+            "SharedPCH": "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine\\Source\\Runtime\\Core\\Public\\CoreSharedPCH.h",
+            "PublicDependencyModules": [
+                "TraceLog"
+            ],
+            "PublicIncludePathModules": [
+            ],
+            "PrivateDependencyModules": [
+                "BuildSettings",
+                "zlib",
+                "IntelTBB",
+                "IntelVTune",
+                "ICU"
+            ],
+            "PrivateIncludePathModules": [
+                "TargetPlatform",
+                "DerivedDataCache",
+                "InputDevice",
+                "Analytics",
+                "RHI",
+                "DirectoryWatcher"
+            ],
+            "DynamicallyLoadedModules": [
+                "SourceCodeAccess",
+                "DirectoryWatcher",
+                "DerivedDataCache"
+            ],
+            "PublicSystemIncludePaths": [
+            ],
+            "PublicIncludePaths": [
+                "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine\\Source\\Runtime",
+                "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine\\Source\\Runtime\\Core\\Public"
+            ],
+            "PrivateIncludePaths": [
+                "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine\\Source\\Developer\\DerivedDataCache\\Public",
+                "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine\\Source\\Runtime\\SynthBenchmark\\Public",
+                "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine\\Source\\Runtime\\Core\\Private",
+                "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine\\Source\\Runtime\\Core\\Private\\Misc",
+                "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine\\Source\\Runtime\\Core\\Private\\Internationalization",
+                "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine\\Source\\Runtime\\Core\\Private\\Internationalization\\Cultures",
+                "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine\\Source\\Runtime\\Engine\\Public"
+            ],
+            "PublicLibraryPaths": [
+            ],
+            "PublicAdditionalLibraries": [
+            ],
+            "PublicFrameworks": [
+            ],
+            "PublicWeakFrameworks": [
+            ],
+            "PublicDelayLoadDLLs": [
+                "DBGHELP.DLL",
+                "d3d12.dll"
+            ],
+            "PublicDefinitions": [
+                "UE_ENABLE_ICU=1",
+                "WITH_VS_PERF_PROFILER=0",
+                "WITH_DIRECTXMATH=0",
+                "WITH_MALLOC_STOMP=1"
+            ],
+            "CircularlyReferencedModules": [
+            ],
+            "RuntimeDependencies": [
+                {
+                    "Path": "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine/Binaries/ThirdParty/DbgHelp/dbghelp.dll",
+                    "Type": "NonUFS"
+                }
+            ]
+        },
+        "TraceLog": 
+        {
+            "Name": "TraceLog",
+            "Directory": "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine\\Source\\Runtime\\TraceLog",
+            "Rules": "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine\\Source\\Runtime\\TraceLog\\TraceLog.Build.cs",
+			"Type": "CPlusPlus",
+            "PCHUsage": "UseExplicitOrSharedPCHs",
+            "PublicDependencyModules": [
+            ],
+            "PublicIncludePathModules": [
+            ],
+            "PrivateDependencyModules": [
+            ],
+            "PrivateIncludePathModules": [
+                "Core"
+            ],
+            "DynamicallyLoadedModules": [
+            ],
+            "PublicSystemIncludePaths": [
+            ],
+            "PublicIncludePaths": [
+                "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine\\Source\\Runtime",
+                "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine\\Source\\Runtime\\TraceLog\\Public"
+            ],
+            "PrivateIncludePaths": [
+                "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine\\Source\\Runtime\\TraceLog\\Private"
+            ],
+            "PublicLibraryPaths": [
+            ],
+            "PublicAdditionalLibraries": [
+            ],
+            "PublicFrameworks": [
+            ],
+            "PublicWeakFrameworks": [
+            ],
+            "PublicDelayLoadDLLs": [
+                "d3d12.dll"
+            ],
+            "PublicDefinitions": [
+            ],
+            "CircularlyReferencedModules": [
+            ],
+            "RuntimeDependencies": [
+            ]
+        },
+        "BuildSettings": 
+        {
+            "Name": "BuildSettings",
+            "Directory": "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine\\Source\\Runtime\\BuildSettings",
+            "Rules": "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine\\Source\\Runtime\\BuildSettings\\BuildSettings.Build.cs",
+			"Type": "CPlusPlus",
+            "PCHUsage": "UseExplicitOrSharedPCHs",
+            "PublicDependencyModules": [
+            ],
+            "PublicIncludePathModules": [
+            ],
+            "PrivateDependencyModules": [
+            ],
+            "PrivateIncludePathModules": [
+                "Core"
+            ],
+            "DynamicallyLoadedModules": [
+            ],
+            "PublicSystemIncludePaths": [
+            ],
+            "PublicIncludePaths": [
+                "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine\\Source\\Runtime",
+                "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine\\Source\\Runtime\\BuildSettings\\Public"
+            ],
+            "PrivateIncludePaths": [
+                "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine\\Source\\Runtime\\BuildSettings\\Private"
+            ],
+            "PublicLibraryPaths": [
+            ],
+            "PublicAdditionalLibraries": [
+            ],
+            "PublicFrameworks": [
+            ],
+            "PublicWeakFrameworks": [
+            ],
+            "PublicDelayLoadDLLs": [
+                "d3d12.dll"
+            ],
+            "PublicDefinitions": [
+            ],
+            "CircularlyReferencedModules": [
+            ],
+            "RuntimeDependencies": [
+            ]
+        },
+        "zlib": 
+        {
+            "Name": "zlib",
+            "Directory": "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine\\Source\\ThirdParty\\zlib",
+            "Rules": "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine\\Source\\ThirdParty\\zlib\\zlib.Build.cs",
+			"Type": "External",
+            "PCHUsage": "Default",
+            "PublicDependencyModules": [
+            ],
+            "PublicIncludePathModules": [
+            ],
+            "PrivateDependencyModules": [
+            ],
+            "PrivateIncludePathModules": [
+            ],
+            "DynamicallyLoadedModules": [
+            ],
+            "PublicSystemIncludePaths": [
+            ],
+            "PublicIncludePaths": [
+                "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine\\Source\\ThirdParty\\zlib\\v1.2.8\\include\\Win32\\VS2015"
+            ],
+            "PrivateIncludePaths": [
+            ],
+            "PublicLibraryPaths": [
+                "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine\\Source\\ThirdParty\\zlib\\v1.2.8\\lib\\Win64\\VS2015\\Release"
+            ],
+            "PublicAdditionalLibraries": [
+                "zlibstatic.lib"
+            ],
+            "PublicFrameworks": [
+            ],
+            "PublicWeakFrameworks": [
+            ],
+            "PublicDelayLoadDLLs": [
+                "d3d12.dll"
+            ],
+            "PublicDefinitions": [
+            ],
+            "CircularlyReferencedModules": [
+            ],
+            "RuntimeDependencies": [
+            ]
+        },
+        "IntelTBB": 
+        {
+            "Name": "IntelTBB",
+            "Directory": "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine\\Source\\ThirdParty\\IntelTBB",
+            "Rules": "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine\\Source\\ThirdParty\\IntelTBB\\IntelTBB.Build.cs",
+			"Type": "External",
+            "PCHUsage": "Default",
+            "PublicDependencyModules": [
+            ],
+            "PublicIncludePathModules": [
+            ],
+            "PrivateDependencyModules": [
+            ],
+            "PrivateIncludePathModules": [
+            ],
+            "DynamicallyLoadedModules": [
+            ],
+            "PublicSystemIncludePaths": [
+                "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine\\Source\\ThirdParty\\IntelTBB\\IntelTBB-4.4u3\\Include"
+            ],
+            "PublicIncludePaths": [
+            ],
+            "PrivateIncludePaths": [
+            ],
+            "PublicLibraryPaths": [
+                "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine\\Source\\ThirdParty\\IntelTBB\\IntelTBB-4.4u3\\lib\\Win64\\vc14"
+            ],
+            "PublicAdditionalLibraries": [
+                "tbbmalloc.lib"
+            ],
+            "PublicFrameworks": [
+            ],
+            "PublicWeakFrameworks": [
+            ],
+            "PublicDelayLoadDLLs": [
+                "d3d12.dll"
+            ],
+            "PublicDefinitions": [
+                "__TBBMALLOC_BUILD=1"
+            ],
+            "CircularlyReferencedModules": [
+            ],
+            "RuntimeDependencies": [
+            ]
+        },
+        "IntelVTune": 
+        {
+            "Name": "IntelVTune",
+            "Directory": "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine\\Source\\ThirdParty\\IntelVTune",
+            "Rules": "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine\\Source\\ThirdParty\\IntelVTune\\IntelVTune.Build.cs",
+			"Type": "External",
+            "PCHUsage": "Default",
+            "PublicDependencyModules": [
+            ],
+            "PublicIncludePathModules": [
+            ],
+            "PrivateDependencyModules": [
+            ],
+            "PrivateIncludePathModules": [
+            ],
+            "DynamicallyLoadedModules": [
+            ],
+            "PublicSystemIncludePaths": [
+                "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine\\Source\\ThirdParty\\IntelVTune\\VTune-2017\\include"
+            ],
+            "PublicIncludePaths": [
+            ],
+            "PrivateIncludePaths": [
+            ],
+            "PublicLibraryPaths": [
+                "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine\\Source\\ThirdParty\\IntelVTune\\VTune-2017\\lib\\Win64"
+            ],
+            "PublicAdditionalLibraries": [
+                "libittnotify.lib"
+            ],
+            "PublicFrameworks": [
+            ],
+            "PublicWeakFrameworks": [
+            ],
+            "PublicDelayLoadDLLs": [
+                "d3d12.dll"
+            ],
+            "PublicDefinitions": [
+            ],
+            "CircularlyReferencedModules": [
+            ],
+            "RuntimeDependencies": [
+            ]
+        },
+        "ICU": 
+        {
+            "Name": "ICU",
+            "Directory": "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine\\Source\\ThirdParty\\ICU",
+            "Rules": "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine\\Source\\ThirdParty\\ICU\\ICU.Build.cs",
+			"Type": "External",
+            "PCHUsage": "Default",
+            "PublicDependencyModules": [
+            ],
+            "PublicIncludePathModules": [
+            ],
+            "PrivateDependencyModules": [
+            ],
+            "PrivateIncludePathModules": [
+            ],
+            "DynamicallyLoadedModules": [
+            ],
+            "PublicSystemIncludePaths": [
+                "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine\\Source\\ThirdParty\\ICU\\icu4c-53_1\\include"
+            ],
+            "PublicIncludePaths": [
+            ],
+            "PrivateIncludePaths": [
+            ],
+            "PublicLibraryPaths": [
+                "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine\\Source\\ThirdParty\\ICU\\icu4c-53_1\\Win64\\VS2015\\lib"
+            ],
+            "PublicAdditionalLibraries": [
+                "icudt.lib",
+                "icuuc.lib",
+                "icuin.lib",
+                "icule.lib",
+                "iculx.lib",
+                "icuio.lib"
+            ],
+            "PublicFrameworks": [
+            ],
+            "PublicWeakFrameworks": [
+            ],
+            "PublicDelayLoadDLLs": [
+                "icudt53.dll",
+                "icuuc53.dll",
+                "icuin53.dll",
+                "icule53.dll",
+                "iculx53.dll",
+                "icuio53.dll",
+                "d3d12.dll"
+            ],
+            "PublicDefinitions": [
+                "U_USING_ICU_NAMESPACE=0",
+                "U_STATIC_IMPLEMENTATION",
+                "UNISTR_FROM_CHAR_EXPLICIT=explicit",
+                "UNISTR_FROM_STRING_EXPLICIT=explicit",
+                "UCONFIG_NO_TRANSLITERATION=1",
+                "NEEDS_ICU_DLLS=1"
+            ],
+            "CircularlyReferencedModules": [
+            ],
+            "RuntimeDependencies": [
+                {
+                    "Path": "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine/Binaries/ThirdParty/ICU/icu4c-53_1/Win64/VS2015/icudt53.dll",
+                    "Type": "NonUFS"
+                },
+                {
+                    "Path": "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine/Binaries/ThirdParty/ICU/icu4c-53_1/Win64/VS2015/icuuc53.dll",
+                    "Type": "NonUFS"
+                },
+                {
+                    "Path": "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine/Binaries/ThirdParty/ICU/icu4c-53_1/Win64/VS2015/icuin53.dll",
+                    "Type": "NonUFS"
+                },
+                {
+                    "Path": "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine/Binaries/ThirdParty/ICU/icu4c-53_1/Win64/VS2015/icule53.dll",
+                    "Type": "NonUFS"
+                },
+                {
+                    "Path": "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine/Binaries/ThirdParty/ICU/icu4c-53_1/Win64/VS2015/iculx53.dll",
+                    "Type": "NonUFS"
+                },
+                {
+                    "Path": "C:\\Code\\github.com\\kalmalyzer\\UnrealEngine\\Engine/Binaries/ThirdParty/ICU/icu4c-53_1/Win64/VS2015/icuio53.dll",
+                    "Type": "NonUFS"
+                }
+            ]
+        }
+    }
+}

@@ -1,4 +1,6 @@
 
+from enum import Enum, auto
+
 class Binary(object):
     def __init__(self, name, json):
         self.name = name
@@ -8,10 +10,14 @@ class Binary(object):
         self.modules = set()
 
     def __str__(self):
-#        return '{ Name: \"%s\", Dependent import libraries: %d, Modules: %d' % (self.name, len(self.dependent_binary_import_libraries), len(self.modules))
-        return '{ Name: \"%s\", Dependent import libraries: {%s}, Modules: {%s}' % (self.name, ', '.join('\"%s\"' % (binary.name,) for binary in self.dependent_binary_import_libraries), ', '.join('\"%s\"' % (module.name,) for module in self.modules))
+        return '{ Name: \"%s\", Dependent import libraries: {%s}, Modules: {%s}' % (self.name, ', '.join('\"%s\"' % (binary.name if binary else '<None>',) for binary in self.dependent_binary_import_libraries), ', '.join('\"%s\"' % (module.name if module else '<None>',) for module in self.modules))
 
 class Module(object):
+
+    class Type(Enum):
+        CPlusPlus = auto()
+        External = auto()
+
     def __init__(self, name, json):
         self.name = name
         self.json = json
@@ -19,11 +25,14 @@ class Module(object):
         self.private_dependency_modules = set()
         self.public_dependency_modules = set()
         self.binary = None
+        self.type = Module.Type[json['Type']]
+
 
 def gather_binary_dependencies_for_module_sub(module, modules_processed, binary_dependencies):
     if not module in modules_processed:
         modules_processed.add(module)
-        binary_dependencies.add(module.binary)
+        if module.type == Module.Type.CPlusPlus:
+            binary_dependencies.add(module.binary)
 
 def gather_binary_dependencies_for_module(module):
 
@@ -65,7 +74,8 @@ def create_build_graph(json_export):
         for module_name in binary.json['Modules']:
             dependent_module = module_names_to_modules[module_name]
             binary.modules.add(dependent_module)
-            dependent_module.binary = binary
+            if dependent_module.type == Module.Type.CPlusPlus:
+                dependent_module.binary = binary
 
     # Link modules to their dependencies
 
