@@ -439,6 +439,7 @@ class TestBuildGraph(unittest.TestCase):
 
         self.assertTrue(any("UE4Editor-BuildSettings" in binary.name for binary in core_binary.dependent_binary_import_libraries))
         self.assertTrue(any("UE4Editor-TraceLog" in binary.name for binary in core_binary.dependent_binary_import_libraries))
+        self.assertFalse(any("UE4Editor-Core" in binary.name for binary in core_binary.dependent_binary_import_libraries))
 
 if __name__=='__main__':
     unittest.main()
