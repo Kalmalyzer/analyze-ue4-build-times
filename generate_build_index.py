@@ -16,9 +16,12 @@ def main():
     parser.add_argument('platform', metavar='platform', type=str, help='Build platofrm (Win64 etc)')
     parser.add_argument('configuration', metavar='configuration', type=str, help='Build configuration (Development etc)')
     parser.add_argument('target', metavar='target', type=str, help='Build target (UE4Editor etc)')
+    parser.add_argument('pch', metavar='pch', type=str, default='True', help='Use precompiled headers')
     args = parser.parse_args()
 
-    generate_build_index(args.ue4_base_directory, args.platform, args.configuration, args.target, args.output_directory)
+    pch = (args.pch != 'False')
+
+    generate_build_index(args.ue4_base_directory, args.platform, args.configuration, args.target, args.output_directory, pch)
 
 if __name__=='__main__':
     main()
