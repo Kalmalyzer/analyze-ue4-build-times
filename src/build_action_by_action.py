@@ -15,10 +15,11 @@ def build_action(base_dir, output_dir, platform, configuration, target, pch, act
     result = subprocess.run([ubt, platform, configuration, target, '-Mode=Build', '-Actions=%s' % (action_pattern,), '' if pch else '-NoPCH', '-Verbose'], capture_output=True)
 
     if result.returncode != 0:
-        logger.error("UBT terminated with error code %d. Error output:\n%s" % (result.returncode, result.stdout))
+        logger.error("UBT terminated with error code %d" % (result.returncode))
 
     action_log_name = os.path.join(output_dir, platform, configuration, target, '%s.log' % (action_name,))
     with open(action_log_name, 'wt') as action_log:
+        action_log.write("UBT return code: %d\n" % (result.returncode,))
         action_log.write(result.stdout.decode(codepage))
     logger.info("Written output to %s" % (action_log_name,))
 
@@ -38,8 +39,8 @@ def build_binary(base_dir, output_dir, platform, configuration, target, pch, bin
 
 def build_action_by_action(base_dir, output_dir, platform, configuration, target, pch, modules, import_libraries, binaries):
 
-    for module in modules:
-        build_module(base_dir, output_dir, platform, configuration, target, pch, module)
+    # for module in modules:
+    #     build_module(base_dir, output_dir, platform, configuration, target, pch, module)
 
     for import_library in import_libraries:
         build_import_library(base_dir, output_dir, platform, configuration, target, pch, import_library)
