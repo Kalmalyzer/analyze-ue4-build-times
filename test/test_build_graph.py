@@ -64,13 +64,17 @@ class TestBuildGraph(unittest.TestCase):
 
         # Ensure build binary dependencies are set appropriately
 
-        self.assertEqual(0, len(build_settings_binary.dependent_binary_import_libraries))
-        self.assertEqual(0, len(trace_log_binary.dependent_binary_import_libraries))
-        self.assertEqual(2, len(core_binary.dependent_binary_import_libraries))
+        self.assertEqual(1, len(build_settings_binary.dependencies))
+        self.assertEqual(1, len(trace_log_binary.dependencies))
+        self.assertEqual(3, len(core_binary.dependencies))
 
-        self.assertTrue(any("UE4Editor-BuildSettings" in binary.name for binary in core_binary.dependent_binary_import_libraries))
-        self.assertTrue(any("UE4Editor-TraceLog" in binary.name for binary in core_binary.dependent_binary_import_libraries))
-        self.assertFalse(any("UE4Editor-Core" in binary.name for binary in core_binary.dependent_binary_import_libraries))
+        self.assertTrue(any("UE4Editor-BuildSettings.lib" in action.name for action in build_settings_binary.dependencies))
+
+        self.assertTrue(any("UE4Editor-TraceLog.lib" in action.name for action in trace_log_binary.dependencies))
+
+        self.assertTrue(any("UE4Editor-BuildSettings.lib" in action.name for action in core_binary.dependencies))
+        self.assertTrue(any("UE4Editor-TraceLog.lib" in action.name for action in core_binary.dependencies))
+        self.assertTrue(any("UE4Editor-Core.lib" in action.name for action in core_binary.dependencies))
 
     def test_create_large_build_graph(self):
 
@@ -97,8 +101,8 @@ class TestBuildGraph(unittest.TestCase):
         # Ensure each dependency in the build graph is nonzero
 
         for binary in build_graph:
-            for binary2 in binary.dependent_binary_import_libraries:
-                self.assertIsNotNone(binary2, 'Binary %s has a None ref in its dependency list: %s' % (binary.name, binary))
+            for action in binary.dependencies:
+                self.assertIsNotNone(action, 'Binary %s has a None ref in its dependency list: %s' % (binary.name, binary))
 
 if __name__=='__main__':
     unittest.main()

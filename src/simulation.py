@@ -27,6 +27,9 @@ def simulate_build(build_graph):
             logger.info("No binary is available to be built. Remaining binaries:")
             for binary2 in remaining_binaries:
                 logger.info("  %s" % (binary2.name,))
+                unfulfilled_dependencies = binary2.dependent_binary_import_libraries.intersection(remaining_binaries)
+                for binary3 in unfulfilled_dependencies:
+                    logger.info("     Depends on: %s" % (binary3.name,))
             return
 
         logger.info("Building binary %s" % binary.name)
