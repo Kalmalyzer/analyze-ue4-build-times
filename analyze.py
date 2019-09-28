@@ -31,9 +31,9 @@ def main():
 
     json_export = load_json_export(args.base_dir, args.platform, args.configuration, args.target)
 
-    build_graph = create_build_graph(json_export)
+    (modules, import_libraries, binaries) = create_build_graph(json_export)
 
-    simulate_build(build_graph)
+    simulate_build(modules, import_libraries, binaries)
 
 if __name__=='__main__':
     main()

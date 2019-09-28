@@ -13,10 +13,10 @@ def find_next_binary_to_build(processed_binaries, remaining_binaries):
 
     return None
 
-def simulate_build(build_graph):
+def simulate_build(modules, import_libraries, binaries):
 
     processed_binaries = set()
-    remaining_binaries = build_graph.copy()
+    remaining_binaries = binaries.copy()
 
     while len(remaining_binaries) > 0:
 

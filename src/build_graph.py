@@ -158,4 +158,4 @@ def create_build_graph(json_export):
     for binary in binaries:
         binary.dependencies.update(gather_binary_dependencies_for_modules(binary.modules))
 
-    return binaries
+    return (modules, import_libraries, binaries)
