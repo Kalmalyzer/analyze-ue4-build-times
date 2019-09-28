@@ -1,3 +1,4 @@
+import os.path
 
 from enum import Enum, auto
 
@@ -107,15 +108,17 @@ def create_build_graph(json_export):
     binary_names_to_binaries = {}
 
     for binary_json in json_export['Binaries']:
-        binary = Binary(binary_json['File'], binary_json)
+        binary_name = os.path.basename(binary_json['File'])
+        binary = Binary(binary_name, binary_json)
         binaries.add(binary)
-        binary_names_to_binaries[binary_json['File']] = binary
+        binary_names_to_binaries[binary_name] = binary
 
     import_libraries = set()
     import_library_names_to_import_libraries = {}
 
     for binary_json in json_export['Binaries']:
-        import_library_name = binary_name_to_import_library_name(binary_json['File'])
+        binary_name = os.path.basename(binary_json['File'])
+        import_library_name = binary_name_to_import_library_name(binary_name)
         import_library = ImportLibrary(import_library_name)
         import_libraries.add(import_library)
         import_library_names_to_import_libraries[import_library_name] = import_library
