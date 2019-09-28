@@ -28,14 +28,16 @@ def main():
     parser.add_argument('platform', metavar='platform', type=str, help='Build platofrm (Win64 etc)')
     parser.add_argument('configuration', metavar='configuration', type=str, help='Build configuration (Development etc)')
     parser.add_argument('target', metavar='target', type=str, help='Build target (UE4Editor etc)')
-    parser.add_argument('pch', metavar='pch', type=bool, default=True, help='Use precompiled headers')
+    parser.add_argument('pch', metavar='pch', type=str, default='True', help='Use precompiled headers')
     args = parser.parse_args()
 
     json_export = load_json_export(args.output_dir, args.platform, args.configuration, args.target)
 
     (modules, import_libraries, binaries) = create_build_graph(json_export)
 
-    build_action_by_action(args.base_dir, args.output_dir, args.platform, args.configuration, args.target, args.pch, modules, import_libraries, binaries)
+    pch = (args.pch != 'False')
+
+    build_action_by_action(args.base_dir, args.output_dir, args.platform, args.configuration, args.target, pch, modules, import_libraries, binaries)
 
 if __name__=='__main__':
     main()
