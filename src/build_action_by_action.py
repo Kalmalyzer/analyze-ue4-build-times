@@ -39,8 +39,8 @@ def build_binary(base_dir, output_dir, platform, configuration, target, pch, bin
 
 def build_action_by_action(base_dir, output_dir, platform, configuration, target, pch, modules, import_libraries, binaries):
 
-    # for module in modules:
-    #     build_module(base_dir, output_dir, platform, configuration, target, pch, module)
+    for module in modules:
+        build_module(base_dir, output_dir, platform, configuration, target, pch, module)
 
     for import_library in import_libraries:
         build_import_library(base_dir, output_dir, platform, configuration, target, pch, import_library)
